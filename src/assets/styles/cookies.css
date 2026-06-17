@@ -1,0 +1,1187 @@
+/* ============================================================
+   ImmunoTrack — Cookie Policy Page Styles
+   Brand Manual 2026: Navy #02124f · Cyan #2dd6e5 · Font: Avenir
+   ============================================================ */
+
+/* ============================================================
+   SVG ICON UTILITIES — colour filters for monochrome SVGs
+   ============================================================ */
+.ck-svg-icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Brand cyan #2dd6e5 */
+.ck-svg-teal {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(60%)
+    saturate(500%) hue-rotate(160deg) brightness(100%) contrast(95%);
+}
+
+/* Light cyan for dark navy backgrounds */
+.ck-svg-teal-light {
+  filter: brightness(0) saturate(100%) invert(88%) sepia(40%)
+    saturate(400%) hue-rotate(160deg) brightness(108%) contrast(100%);
+}
+
+/* Navy */
+.ck-svg-navy {
+  filter: brightness(0) saturate(100%) invert(10%) sepia(60%)
+    saturate(900%) hue-rotate(215deg) brightness(75%) contrast(115%);
+}
+
+/* Amber */
+.ck-svg-amber {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(90%)
+    saturate(500%) hue-rotate(10deg) brightness(95%) contrast(90%);
+}
+
+/* Red */
+.ck-svg-red {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(70%)
+    saturate(700%) hue-rotate(340deg) brightness(90%) contrast(110%);
+}
+
+/* Green */
+.ck-svg-green {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(60%)
+    saturate(500%) hue-rotate(120deg) brightness(90%) contrast(100%);
+}
+
+/* ============================================================
+   DESIGN TOKENS — Brand Manual 2026
+   ============================================================ */
+:root {
+  /* Primary palette */
+  --ck-navy:         #151a58;     /* ImmunoTrack wordmark navy        */
+  --ck-navy-deep:    #02124f;     /* Darkest navy — hero, footer      */
+  --ck-navy-mid:     #1c2370;     /* Mid navy — gradients             */
+  --ck-cyan:         #2dd6e5;     /* Brand cyan accent                */
+  --ck-cyan-d:       #1bb8c7;     /* Darker cyan — hover, borders     */
+  --ck-cyan-pale:    #f0fdfe;     /* Pale cyan — strip bg             */
+  --ck-cyan-glow:    rgba(45, 214, 229, 0.12);
+
+  /* Text */
+  --ck-text-body:    #2b2f5e;     /* Body text — dark navy tone       */
+  --ck-text-muted:   #6b6f9a;     /* Secondary / muted text           */
+  --ck-text-heading: #151a58;     /* Headings — brand navy            */
+
+  /* Surface */
+  --ck-bg-page:      #f3f5fb;     /* Page background                  */
+  --ck-bg-card:      #ffffff;     /* Card surface                     */
+  --ck-border:       rgba(21, 26, 88, 0.1);
+
+  /* Semantic */
+  --ck-amber-bg:     #fff8e7;
+  --ck-amber-b:      #d4a017;
+  --ck-amber-text:   #7a4e00;
+  --ck-red-bg:       #fef2f2;
+  --ck-red-text:     #c0392b;
+  --ck-green-bg:     #e8faf3;
+  --ck-green-text:   #0f7a50;
+
+  /* Shape */
+  --ck-radius:       12px;
+  --ck-radius-lg:    20px;
+  --ck-shadow:       0 2px 16px rgba(2, 18, 79, 0.08);
+  --ck-shadow-lg:    0 8px 40px rgba(2, 18, 79, 0.14);
+}
+
+/* ============================================================
+   PAGE WRAPPER
+   ============================================================ */
+.ck-page {
+  min-height: 100vh;
+  /* background-color: var(--ck-bg-page); */
+  color: var(--ck-text-body);
+  /* Use the CSS variable exposed by next/font — NOT the literal string "Avenir" */
+  font-family: var(--font-avenir), sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.ck-hero {
+  position: relative;
+  background: url('/cookie-hero-bg.png');
+  background-size: cover;      /* fills the banner */
+    background-position: center; /* centers the image */
+    background-repeat: no-repeat;
+  color: #ffffff;
+  padding: 96px 24px 80px;
+  text-align: center;
+  overflow: hidden;
+  height: 420px;
+  
+}
+
+/* Soft radial cyan glow over image */
+/* .ck-hero::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(45, 214, 229, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+} */
+
+.ck-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ck-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(45, 214, 229, 0.15);
+  border: 1px solid rgba(45, 214, 229, 0.35);
+  color: var(--ck-cyan);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.ck-hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--ck-cyan);
+  border-radius: 50%;
+  animation: ck-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ck-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.45; transform: scale(0.7); }
+}
+
+.ck-hero-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.ck-hero-title span {
+  color: var(--ck-cyan);
+}
+
+.ck-hero-subtitle {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+
+.ck-hero-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================================
+   OVERVIEW STRIP
+   ============================================================ */
+.ck-overview {
+  background: var(--ck-cyan-pale);
+  border-bottom: 1px solid rgba(45, 214, 229, 0.2);
+  padding: 0 24px;
+}
+
+.ck-overview-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ck-overview-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 28px 20px;
+  border-right: 1px solid rgba(45, 214, 229, 0.2);
+  transition: background 0.2s ease;
+}
+
+.ck-overview-item:last-child {
+  border-right: none;
+}
+
+.ck-overview-item:hover {
+  background: rgba(45, 214, 229, 0.07);
+}
+
+.ck-overview-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: rgba(45, 214, 229, 0.12);
+  border: 1px solid rgba(45, 214, 229, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.ck-overview-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ck-cyan-d);
+  margin-bottom: 4px;
+}
+
+.ck-overview-value {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--ck-navy);
+}
+
+/* ============================================================
+   MAIN LAYOUT — responsive widths, capped at 1200px
+   ============================================================ */
+.ck-layout {
+  /* XS default: full width */
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 56px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Small ≥576px */
+@media (min-width: 576px) {
+  .ck-layout {
+    max-width: 540px;
+    padding: 56px 0 80px;
+  }
+}
+
+/* Medium ≥768px */
+@media (min-width: 768px) {
+  .ck-layout {
+    max-width: 720px;
+  }
+}
+
+/* Large ≥992px */
+@media (min-width: 992px) {
+  .ck-layout {
+    max-width: 960px;
+  }
+}
+
+/* X-Large ≥1200px → 1200px */
+@media (min-width: 1200px) {
+  .ck-layout {
+    max-width: 1200px;
+  }
+}
+
+/* XX-Large ≥1400px → stays at 1200px */
+@media (min-width: 1400px) {
+  .ck-layout {
+    max-width: 1200px;
+    padding: 64px 0 96px;
+  }
+}
+
+/* ============================================================
+   TABLE OF CONTENTS (sticky sidebar)
+   ============================================================ */
+.ck-toc {
+  position: sticky;
+  top: 100px;
+  background: var(--ck-bg-card);
+  border: 1px solid var(--ck-border);
+  border-radius: var(--ck-radius-lg);
+  padding: 24px;
+  box-shadow: var(--ck-shadow);
+}
+
+.ck-toc-title {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ck-cyan-d);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ck-border);
+}
+
+.ck-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ck-toc-link {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ck-text-body);
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  line-height: 1.4;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.ck-toc-link:hover {
+  background: var(--ck-cyan-pale);
+  color: var(--ck-cyan-d);
+}
+
+.ck-toc-link.active {
+  background: var(--ck-cyan-glow);
+  color: var(--ck-cyan-d);
+  font-weight: 800;
+}
+
+/* ============================================================
+   CONTENT AREA
+   ============================================================ */
+.ck-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Intro lead card */
+.ck-lead-card {
+  background: var(--ck-bg-card);
+  border: 1px solid var(--ck-border);
+  border-radius: var(--ck-radius-lg);
+  padding: 32px;
+  box-shadow: var(--ck-shadow);
+}
+
+.ck-lead-text {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--ck-text-body);
+  margin: 0;
+}
+
+.ck-lead-text strong {
+  font-weight: 800;
+  color: var(--ck-text-heading);
+}
+
+/* ============================================================
+   SECTION CARDS
+   ============================================================ */
+.ck-section-card {
+  background: var(--ck-bg-card);
+  border: 1px solid var(--ck-border);
+  border-radius: var(--ck-radius-lg);
+  box-shadow: var(--ck-shadow);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.ck-section-card:hover {
+  box-shadow: var(--ck-shadow-lg);
+}
+
+.ck-section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--ck-border);
+  /* background: linear-gradient(to right, rgba(2, 18, 79, 0.03), transparent); */
+}
+
+/* Numbered chip — navy background, white number */
+.ck-section-num {
+  width: 32px;
+  height: 32px;
+  background: var(--ck-navy-deep);
+  color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.ck-section-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ck-text-heading);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.ck-section-body {
+  padding: 28px;
+}
+
+/* ============================================================
+   TYPOGRAPHY WITHIN SECTIONS
+   ============================================================ */
+.ck-p {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--ck-text-body);
+  margin: 0 0 16px;
+}
+
+.ck-p:last-child {
+  margin-bottom: 0;
+}
+
+.ck-p strong {
+  font-weight: 800;
+  color: var(--ck-text-heading);
+}
+
+.ck-p-muted {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--ck-text-muted);
+  margin: 0 0 12px;
+}
+
+.ck-p-muted:last-child {
+  margin-bottom: 0;
+}
+
+.ck-p-muted strong {
+  font-weight: 500;
+  color: var(--ck-text-body);
+}
+
+/* Sub-section dividers */
+.ck-sub-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--ck-border);
+}
+
+.ck-sub-section:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* Sub-heading (2.1, 2.2 …) */
+.ck-h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ck-navy);
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.005em;
+}
+
+.ck-h3-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--ck-cyan);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   LISTS
+   ============================================================ */
+.ck-list {
+  /* list-style: none; */
+  list-style-type: disc;
+  padding: 0;
+  margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ck-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+}
+.ck-list-item {
+  display: flex;
+  position: relative;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ck-text-body);
+  align-items: flex-start;
+  padding-left: 15px;
+}
+
+/* .ck-list-item::before {
+  content: "→";
+  color: var(--ck-cyan-d);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+} */
+
+.ck-list-item strong {
+  font-weight: 500;
+  color: var(--ck-cyan-d);
+}
+
+/* ============================================================
+   CALLOUT / BLOCKQUOTE
+   ============================================================ */
+.ck-callout {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: var(--ck-radius);
+  background: var(--ck-amber-bg);
+  border-left: 4px solid var(--ck-amber-b);
+  color: var(--ck-amber-text);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.ck-callout-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.ck-callout-header strong {
+  font-weight: 500;
+  color: var(--ck-amber-text);
+}
+
+/* ============================================================
+   CODE INLINE
+   ============================================================ */
+.ck-code {
+  background: var(--ck-bg-page);
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-size: 0.8125rem;
+  color: var(--ck-red-text);
+  font-family: "Courier New", Courier, monospace;
+  border: 1px solid var(--ck-border);
+}
+
+/* ============================================================
+   EXCLUSION GRID (Section 3)
+   ============================================================ */
+.ck-exclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.ck-exclusion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ck-red-bg);
+  color: var(--ck-red-text);
+  padding: 10px 14px;
+  border-radius: var(--ck-radius);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1px solid rgba(192, 57, 43, 0.15);
+}
+
+/* ============================================================
+   PROVIDER CARDS (Section 6)
+   ============================================================ */
+.ck-providers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.ck-provider-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border-radius: var(--ck-radius);
+  /* background: var(--ck-bg-page); */
+  border: 1px solid var(--ck-border);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.ck-provider-card:hover {
+  border-color: var(--ck-cyan);
+  background: var(--ck-cyan-pale);
+}
+
+.ck-provider-icon {
+  width: 42px;
+  height: 42px;
+  /* background: var(--ck-cyan-pale); */
+  border: 1px solid var(--ck-cyan);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ck-provider-name {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ck-text-heading);
+  margin: 0 0 4px;
+}
+
+.ck-provider-desc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  /* color: var(--ck-text-muted); */
+  margin: 0;
+}
+
+
+
+/* ============================================================
+   EXTERNAL LINK
+   ============================================================ */
+.ck-link {
+  font-weight: 500;
+  color: var(--ck-cyan-d);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+  transition: color 0.15s ease;
+}
+
+.ck-link:hover {
+  color: var(--ck-navy);
+}
+
+/* ============================================================
+   HEALTH DATA HIGHLIGHTS (Section 4)
+   ============================================================ */
+.ck-health-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--ck-radius);
+  background: var(--ck-green-bg);
+  border: 1px solid rgba(15, 122, 80, 0.2);
+  margin-bottom: 12px;
+}
+
+.ck-health-highlight:last-child {
+  margin-bottom: 0;
+}
+
+.ck-health-icon-wrap {
+  width: 44px;
+  height: 44px;
+  background: rgba(15, 122, 80, 0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ck-health-text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ck-green-text);
+  margin: 0;
+}
+
+.ck-health-text strong {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 3px;
+  color: var(--ck-green-text);
+}
+
+/* ============================================================
+   SUMMARY BANNER
+   ============================================================ */
+.ck-summary-banner {
+  background: linear-gradient(135deg, var(--ck-navy-deep) 0%, var(--ck-navy-mid) 100%);
+  border-radius: var(--ck-radius-lg);
+  padding: 32px;
+  color: #fff;
+  box-shadow: var(--ck-shadow-lg);
+}
+
+.ck-summary-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ck-cyan);
+  margin-bottom: 20px;
+}
+
+.ck-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.ck-summary-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--ck-radius);
+  padding: 16px;
+  transition: background 0.2s ease;
+}
+
+.ck-summary-chip:hover {
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.ck-summary-chip-icon-wrap {
+  width: 38px;
+  height: 38px;
+  background: rgba(45, 214, 229, 0.18);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ck-summary-chip-text {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   X-Large devices — large desktops (less than 1400px)
+   @media (max-width: 1399.98px)
+   ============================================================ */
+/* (max-width layout padding already handled via min-width above) */
+
+/* ============================================================
+   Large devices — desktops (less than 1200px)
+   @media (max-width: 1199.98px)
+   ============================================================ */
+/* (max-width layout padding already handled via min-width above) */
+
+/* ============================================================
+   Medium devices — tablets (less than 992px)
+   @media (max-width: 991.98px)
+   ============================================================ */
+@media (max-width: 991.98px) {
+  /* Hero */
+  .ck-hero {
+    padding: 80px 24px 64px;
+    min-height: 300px;
+  }
+
+  .ck-hero-inner {
+    max-width: 100%;
+  }
+
+  /* Overview */
+  .ck-overview {
+    padding: 0 16px;
+  }
+
+  /* Cards */
+  .ck-content {
+    gap: 20px;
+  }
+
+  /* Summary */
+  .ck-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================================
+   Small devices — landscape phones (less than 768px)
+   @media (max-width: 767.98px)
+   ============================================================ */
+@media (max-width: 767.98px) {
+  /* Hero */
+  .ck-hero {
+    padding: 72px 20px 56px;
+  }
+
+  .ck-hero-title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+    margin-bottom: 16px;
+  }
+
+  .ck-hero-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .ck-hero-meta {
+    font-size: 0.75rem;
+    padding: 6px 16px;
+  }
+
+  /* Overview — stay 3-col but compact */
+  .ck-overview-item {
+    padding: 20px 14px;
+  }
+
+  .ck-overview-icon-wrap {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ck-overview-label {
+    font-size: 0.625rem;
+  }
+
+  .ck-overview-value {
+    font-size: 0.875rem;
+  }
+
+  /* Layout */
+  .ck-layout {
+    padding: 32px 20px 56px;
+  }
+
+  /* Cards */
+  .ck-lead-card {
+    padding: 24px;
+  }
+
+  .ck-section-header {
+    padding: 18px 22px;
+    gap: 12px;
+  }
+
+  .ck-section-body {
+    padding: 22px;
+  }
+
+  .ck-section-title {
+    font-size: 1rem;
+  }
+
+  /* Grids → 1 col */
+  .ck-exclusion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact cards — stack to 1 col */
+  .ck-contact-cards-grid {
+    grid-template-columns: 1fr;
+    padding: 20px 20px 0;
+  }
+
+  .ck-contact-footer-strip {
+    grid-template-columns: 1fr;
+    margin: 16px 20px 20px;
+  }
+
+  .ck-contact-footer-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(45, 214, 229, 0.2);
+  }
+
+  .ck-contact-footer-item:last-child {
+    border-bottom: none;
+  }
+
+
+  /* Summary */
+  .ck-summary-banner {
+    padding: 28px 22px;
+  }
+
+  .ck-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Typography */
+  .ck-p {
+    font-size: 16px;
+  }
+
+  .ck-p-muted {
+    font-size: 0.875rem;
+  }
+
+  .ck-list-item {
+    font-size: 0.875rem;
+  }
+
+  .ck-content {
+    gap: 18px;
+  }
+}
+
+/* ============================================================
+   X-Small devices — portrait phones (less than 576px)
+   @media (max-width: 575.98px)
+   ============================================================ */
+@media (max-width: 575.98px) {
+  /* Hero */
+  .ck-hero {
+    padding: 60px 16px 48px;
+  }
+
+  .ck-hero-badge {
+    font-size: 9px;
+    padding: 5px 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .ck-hero-title {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    margin-bottom: 12px;
+  }
+
+  .ck-hero-subtitle {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* Overview → stack as horizontal rows */
+  .ck-overview-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .ck-overview-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(45, 214, 229, 0.2);
+    padding: 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 14px;
+  }
+
+  .ck-overview-item:last-child {
+    border-bottom: none;
+  }
+
+  .ck-overview-icon-wrap {
+    margin-bottom: 0;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+  }
+
+  .ck-overview-label {
+    margin-bottom: 2px;
+  }
+
+  /* Layout */
+  .ck-layout {
+    padding: 24px 14px 48px;
+    gap: 16px;
+  }
+
+  /* Cards */
+  .ck-lead-card {
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+
+  .ck-section-card {
+    border-radius: 16px;
+  }
+
+  .ck-section-header {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .ck-section-body {
+    padding: 16px;
+  }
+
+  .ck-section-num {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
+    border-radius: 7px;
+  }
+
+  .ck-section-title {
+    font-size: 0.9375rem;
+  }
+
+  /* Sub-sections */
+  .ck-sub-section {
+    margin-top: 18px;
+    padding-top: 16px;
+  }
+
+  /* Typography */
+  .ck-p {
+    font-size: 0.875rem;
+    line-height: 1.75;
+  }
+
+  .ck-p-muted {
+    font-size: 0.8125rem;
+  }
+
+  .ck-h3 {
+    font-size: 0.875rem;
+  }
+
+  .ck-list-item {
+    font-size: 0.8125rem;
+    gap: 8px;
+  }
+
+  .ck-callout {
+    padding: 14px 16px;
+    font-size: 0.8125rem;
+  }
+
+  /* Exclusion */
+  .ck-exclusion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ck-exclusion-item {
+    font-size: 0.75rem;
+    padding: 9px 12px;
+  }
+
+  /* Providers */
+  .ck-provider-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .ck-provider-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ck-provider-name {
+    font-size: 0.875rem;
+  }
+
+  .ck-provider-desc {
+    font-size: 0.75rem;
+  }
+
+  /* Health highlights */
+  .ck-health-highlight {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .ck-health-icon-wrap {
+    width: 38px;
+    height: 38px;
+  }
+
+  .ck-health-text {
+    font-size: 0.8125rem;
+  }
+
+  /* Contact */
+  .ck-contact-cards-grid {
+    grid-template-columns: 1fr;
+    padding: 16px 16px 0;
+  }
+
+  .ck-contact-footer-strip {
+    margin: 14px 16px 16px;
+  }
+
+  .ck-contact-hero {
+    padding: 28px 20px;
+  }
+
+  .ck-contact-card-v2 {
+    padding: 14px 16px;
+  }
+
+  /* Summary */
+  .ck-summary-banner {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .ck-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .ck-summary-chip {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .ck-summary-chip-icon-wrap {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+  }
+
+  .ck-summary-chip-text {
+    font-size: 0.8125rem;
+  }
+
+  .ck-content {
+    gap: 14px;
+  }
+}

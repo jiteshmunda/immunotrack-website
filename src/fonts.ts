@@ -1,0 +1,38 @@
+import localFont from "next/font/local";
+
+export const avenir = localFont({
+  src: [
+    {
+      path: "./assets/fonts/Avenir-LT-55-Roman.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./assets/fonts/Avenir-LT-55-Oblique.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./assets/fonts/Avenir-LT-85-Heavy.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./assets/fonts/Avenir-LT-86-Heavy-Oblique.ttf",
+      weight: "800",
+      style: "italic",
+    },
+    {
+      path: "./assets/fonts/AvenirLTStd-Roman.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./assets/fonts/AvenirLTStd-Oblique.otf",
+      weight: "500",
+      style: "italic",
+    },
+  ],
+  variable: "--font-avenir",
+  display: "swap",
+});

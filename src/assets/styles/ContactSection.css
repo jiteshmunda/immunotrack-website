@@ -1,0 +1,322 @@
+/* ============================================================
+   ContactSection Component Styles
+   Reusable across all pages (Cookies, Privacy, Terms, etc.)
+   Brand: Navy #02124f · Cyan #2dd6e5
+   ============================================================ */
+
+/* ── Design tokens (shared with the rest of the site) ──────
+   These reference the same CSS variables set in cookies.css
+   and globals.css via :root, so no duplication is needed.
+   ─────────────────────────────────────────────────────────── */
+
+/* Outer card wrapper */
+.cs-section {
+  background: #ffffff;
+  border: 1px solid rgba(21, 26, 88, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(2, 18, 79, 0.08);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+  isolation: isolate;
+}
+
+.cs-section:hover {
+  box-shadow: 0 8px 40px rgba(2, 18, 79, 0.14);
+}
+
+/* ── Hero banner — uses Next.js Image fill for full coverage ── */
+.cs-hero {
+  position: relative;
+  min-height: 220px;
+  padding: 56px 36px 52px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Next.js Image fill — sits at z-index 0 */
+.cs-hero-bg-img {
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* Dark gradient overlay — z-index 1 */
+.cs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(2, 18, 79, 0.70) 0%, rgba(28, 35, 112, 0.62) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content wrapper — z-index 2, above image and overlay */
+.cs-hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+
+.cs-hero-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #2dd6e5;
+  background: rgba(45, 214, 229, 0.12);
+  border: 1px solid rgba(45, 214, 229, 0.3);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.cs-hero-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.cs-hero-sub {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Contact cards grid ─────────────────────────────────── */
+.cs-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 28px 28px 0;
+}
+
+/* Individual card — rendered as <a> */
+.cs-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: #f3f5fb;
+  border: 1.5px solid rgba(21, 26, 88, 0.1);
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.18s ease;
+  cursor: pointer;
+}
+
+.cs-card:hover {
+  border-color: #2dd6e5;
+  box-shadow: 0 6px 28px rgba(45, 214, 229, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Icon pill */
+.cs-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cs-icon-cyan {
+  background: rgba(45, 214, 229, 0.12);
+  border: 1.5px solid rgba(45, 214, 229, 0.3);
+  color: #1bb8c7;
+}
+
+.cs-icon-navy {
+  background: rgba(2, 18, 79, 0.07);
+  border: 1.5px solid rgba(2, 18, 79, 0.15);
+  color: #151a58;
+}
+
+/* Card text */
+.cs-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.cs-card-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b6f9a;
+  margin: 0 0 4px;
+}
+
+.cs-card-value {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #1bb8c7;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cs-card-hint {
+  font-size: 0.75rem;
+  color: #6b6f9a;
+  margin: 0;
+}
+
+/* Arrow indicator */
+.cs-card-arrow {
+  font-size: 1.125rem;
+  color: #1bb8c7;
+  flex-shrink: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.cs-card:hover .cs-card-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* ── Footer strip — address + HIPAA ─────────────────────── */
+.cs-footer-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 24px 28px 28px;
+  background: #f0fdfe;
+  border: 1px solid rgba(45, 214, 229, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cs-footer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+  border-right: 1px solid rgba(45, 214, 229, 0.2);
+}
+
+.cs-footer-item:last-child {
+  border-right: none;
+}
+
+.cs-footer-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.cs-footer-icon-wrap.cs-icon-cyan {
+  background: rgba(45, 214, 229, 0.12);
+  border: 1.5px solid rgba(45, 214, 229, 0.3);
+}
+
+.cs-footer-icon-wrap.cs-icon-navy {
+  background: rgba(2, 18, 79, 0.07);
+  border: 1.5px solid rgba(2, 18, 79, 0.15);
+}
+
+.cs-footer-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1bb8c7;
+  margin: 0 0 4px;
+}
+
+.cs-footer-text {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #2b2f5e;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cs-footer-link {
+  font-weight: 500;
+  color: #1bb8c7;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.cs-footer-link:hover {
+  color: #151a58;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* ≤ 767.98px — tablets / landscape phones */
+@media (max-width: 767.98px) {
+  .cs-hero {
+    padding: 32px 24px;
+  }
+
+  .cs-cards-grid {
+    grid-template-columns: 1fr;
+    padding: 20px 20px 0;
+  }
+
+  .cs-footer-strip {
+    grid-template-columns: 1fr;
+    margin: 16px 20px 20px;
+  }
+
+  .cs-footer-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(45, 214, 229, 0.2);
+  }
+
+  .cs-footer-item:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ≤ 575.98px — portrait phones */
+@media (max-width: 575.98px) {
+  .cs-hero {
+    padding: 24px 16px;
+  }
+
+  .cs-cards-grid {
+    padding: 16px 16px 0;
+    gap: 12px;
+  }
+
+  .cs-card {
+    padding: 14px 16px;
+  }
+
+  .cs-card-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cs-footer-strip {
+    margin: 14px 16px 16px;
+  }
+
+  .cs-footer-item {
+    padding: 14px 16px;
+  }
+}

@@ -50,7 +50,7 @@
    ============================================================ */
 .sp-page {
   min-height: 100vh;
-  background-color: var(--sp-bg-page);
+  background-color: #fff;
   color: var(--sp-text-body);
   font-family: var(--font-avenir), "Avenir", sans-serif;
   font-size: 16px;
@@ -59,56 +59,69 @@
 }
 
 /* ============================================================
-   HERO SECTION
+   HERO SECTION — full-bleed background image
    ============================================================ */
 .sp-hero {
-  background: linear-gradient(135deg, #02124f 0%, #0d1f6b 50%, #091557 100%);
-  padding: 0;
-  overflow: hidden;
   position: relative;
-  min-height: 340px;
+  min-height: 480px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url('/support-hero-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
+/* Dark navy + cyan gradient overlay for text legibility */
 .sp-hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 80% at 30% 50%, rgba(45, 214, 229, 0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(45, 214, 229, 0.05) 0%, transparent 60%);
+    linear-gradient(
+      135deg,
+      rgba(2, 18, 79, 0.88) 0%,
+      rgba(9, 21, 87, 0.80) 50%,
+      rgba(2, 18, 79, 0.75) 100%
+    ),
+    radial-gradient(ellipse 70% 90% at 50% 50%, rgba(45, 214, 229, 0.08) 0%, transparent 70%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .sp-hero-inner {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 64px 40px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 40px;
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 72px 24px;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
 .sp-hero-label {
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--sp-cyan);
-  margin-bottom: 18px;
+  margin: 0 0 20px;
 }
 
 .sp-hero-title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 800;
   color: #ffffff;
-  line-height: 1.15;
-  margin: 0 0 20px;
+  line-height: 1.1;
+  margin: 0 0 22px;
+  text-shadow: 0 2px 24px rgba(2, 18, 79, 0.5);
 }
 
 .sp-hero-title span {
@@ -116,35 +129,19 @@
 }
 
 .sp-hero-subtitle {
-  font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.75);
-  max-width: 460px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 520px;
   line-height: 1.7;
   margin: 0;
+  text-shadow: 0 1px 8px rgba(2, 18, 79, 0.4);
 }
 
-.sp-hero-image {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.sp-hero-image img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 40px rgba(45, 214, 229, 0.25));
-}
 
 /* ============================================================
    SECTION WRAPPER
    ============================================================ */
-.sp-section {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 80px 40px;
-}
+
 
 .sp-section-title {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -163,11 +160,11 @@
 }
 
 /* ============================================================
-   FAQ CATEGORY GRID
+   FAQ CATEGORY GRID — 4 per row
    ============================================================ */
 .sp-faq-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-bottom: 48px;
 }
@@ -226,17 +223,6 @@
   line-height: 1.5;
 }
 
-/* Second row — 3 cards centred */
-.sp-faq-grid-row2 {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.sp-faq-grid-row2 .sp-faq-card {
-  flex: 0 1 260px;
-}
 
 /* ============================================================
    ACCORDION — FAQ QUESTIONS
@@ -324,13 +310,9 @@
    ============================================================ */
 .sp-contact-strip {
   background: #fff;
-  padding: 64px 40px;
+  /* padding governed by breakpoint ladder below */
 }
 
-.sp-contact-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
 
 .sp-contact-title {
   font-size: clamp(1.6rem, 3vw, 2.1rem);
@@ -433,23 +415,64 @@
   color: #fff;
 }
 
-/* Emergency card */
-.sp-emergency-card {
-  background: var(--sp-red-bg);
-  border: 1.5px solid var(--sp-red-border);
+
+/* ── Email card body elements ─────────────────────────── */
+.sp-email-card-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sp-cyan-d);
+  margin: 0 0 6px;
+}
+
+.sp-email-address {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--sp-text-head);
+  text-decoration: none;
+  margin-bottom: 12px;
+  transition: color 0.2s;
+}
+
+.sp-email-address:hover {
+  color: var(--sp-cyan-d);
+}
+
+.sp-sla-text {
+  font-size: 0.9rem;
+  color: var(--sp-text-muted);
+  margin: 0 0 18px;
+  line-height: 1.6;
+}
+
+.sp-sla-text strong {
+  color: var(--sp-text-head);
+}
+
+/* ── Urgent medical notice card (§5.6) — visually distinct ── */
+.sp-urgent-card {
+  background: #fff8f8;
+  border: 2px solid rgba(192, 57, 43, 0.25);
   border-radius: var(--sp-radius-lg);
   padding: 36px 32px;
   display: flex;
   align-items: flex-start;
-  gap: 24px;
+  gap: 22px;
   box-shadow: var(--sp-shadow);
+  transition: box-shadow 0.2s ease;
 }
 
-.sp-emergency-icon-wrap {
+.sp-urgent-card:hover {
+  box-shadow: 0 6px 32px rgba(192, 57, 43, 0.12);
+}
+
+.sp-urgent-icon {
   width: 60px;
   height: 60px;
-  background: rgba(192, 57, 43, 0.12);
-  border: 2px solid rgba(192, 57, 43, 0.3);
+  background: rgba(192, 57, 43, 0.08);
+  border: 2px solid rgba(192, 57, 43, 0.25);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -457,22 +480,24 @@
   flex-shrink: 0;
 }
 
-.sp-emergency-icon-wrap svg {
-  color: var(--sp-red-text);
-}
-
-.sp-emergency-body h3 {
-  font-size: 1.15rem;
+.sp-urgent-label {
+  font-size: 0.75rem;
   font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--sp-red-text);
   margin: 0 0 8px;
 }
 
-.sp-emergency-body p {
-  color: #5a2020;
+.sp-urgent-body {
+  flex: 1;
+}
+
+.sp-urgent-text {
   font-size: 0.95rem;
-  margin: 0 0 18px;
-  line-height: 1.6;
+  color: #5a2020;
+  margin: 0 0 20px;
+  line-height: 1.65;
 }
 
 .sp-911-btn {
@@ -497,216 +522,459 @@
   color: #fff;
 }
 
-/* Disclaimer banner */
-.sp-disclaimer {
-  background: #eef1fb;
-  border: 1px solid rgba(21, 26, 88, 0.12);
-  border-radius: var(--sp-radius);
-  padding: 22px 28px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-top: 8px;
-}
 
-.sp-disclaimer-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 2px solid rgba(45, 214, 229, 0.45);
-  background: rgba(45, 214, 229, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
 
-.sp-disclaimer p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--sp-text-muted);
-  line-height: 1.6;
-}
 
-.sp-disclaimer strong {
-  color: var(--sp-text-head);
+/* ============================================================
+   §5.3  FAQ SECTION WRAPPER
+   ============================================================ */
+.sp-faq-section {
+  background: #fff;
 }
 
 /* ============================================================
-   GET IN TOUCH SECTION
+   §5.4  LEGAL SECTION — 2-column premium cards
    ============================================================ */
-.sp-contact-section {
-  background: var(--sp-bg-page);
-  padding: 80px 40px;
+.sp-legal-section {
+  background: #fff;
+  padding: 72px 24px;
+  /* border-top: 1px solid var(--sp-border); */
 }
 
-.sp-contact-section-inner {
-  max-width: 1100px;
+.sp-legal-inner {
+  max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
-.sp-contact-section-label {
-  font-size: 13px;
+.sp-legal-eyebrow {
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--sp-cyan-d);
-  margin-bottom: 12px;
+  margin: 0 0 10px;
 }
 
-.sp-contact-section-title {
-  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+.sp-legal-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 800;
   color: var(--sp-text-head);
-  margin: 0 0 14px;
-}
-
-.sp-contact-section-subtitle {
-  color: var(--sp-text-muted);
-  font-size: 1rem;
-  margin: 0 0 52px;
-}
-
-.sp-contact-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.sp-contact-info-card {
-  background: var(--sp-bg-card);
-  border: 1px solid var(--sp-border);
-  border-radius: var(--sp-radius-lg);
-  padding: 32px 24px;
-  text-align: center;
-  box-shadow: var(--sp-shadow);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.sp-contact-info-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--sp-shadow-lg);
-}
-
-.sp-contact-info-card h3 {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--sp-cyan-d);
   margin: 0 0 12px;
 }
 
-.sp-contact-info-card a {
-  display: block;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--sp-text-head);
-  text-decoration: none;
-  margin-bottom: 6px;
-  transition: color 0.2s;
+.sp-legal-subtitle {
+  font-size: 0.97rem;
+  color: var(--sp-text-muted);
+  margin: 0 0 48px;
+  line-height: 1.6;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.sp-contact-info-card a:hover {
+/* ── Card grid ─────────────────────────────────────────── */
+.sp-legal-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  text-align: left;
+}
+
+/* ── Individual card ───────────────────────────────────── */
+.sp-legal-card {
+  background: #fff;
+  border: 1px solid var(--sp-border);
+  border-radius: var(--sp-radius-lg);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--sp-shadow);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.sp-legal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sp-shadow-lg);
+}
+
+/* ── Coloured top banner ───────────────────────────────── */
+.sp-legal-card-top {
+  padding: 28px 32px 22px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+}
+
+.sp-legal-card-top--cyan {
+  background: linear-gradient(135deg, #e8fcfe 0%, #d0f7fb 100%);
+  border-bottom: 1px solid rgba(45, 214, 229, 0.2);
+}
+
+.sp-legal-card-top--navy {
+  /* background: linear-gradient(135deg, #eef0fb 0%, #dde1f8 100%);
+  border-bottom: 1px solid rgba(21, 26, 88, 0.12); */
+      background: linear-gradient(135deg, #e8fcfe 0%, #d0f7fb 100%);
+    border-bottom: 1px solid #2dd6e533;
+}
+
+/* ── Icon circle ───────────────────────────────────────── */
+.sp-legal-card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.sp-legal-card:hover .sp-legal-card-icon {
+  transform: scale(1.08);
+}
+
+.sp-legal-card-icon--cyan {
+  background: rgba(45, 214, 229, 0.18);
+  border: 2px solid rgba(45, 214, 229, 0.4);
   color: var(--sp-cyan-d);
 }
 
-.sp-contact-info-card p {
-  font-size: 0.85rem;
-  color: var(--sp-text-muted);
-  margin: 0;
+.sp-legal-card-icon--navy {
+  /* background: rgba(21, 26, 88, 0.1);
+  border: 2px solid rgba(21, 26, 88, 0.2);
+  color: var(--sp-navy-mid); */
+  color: var(--sp-cyan-d);
+    background: #2dd6e52e;
+    border: 2px solid #2dd6e566;
 }
 
-.sp-contact-note {
-  margin-top: 36px;
-  font-size: 0.85rem;
+/* ── Card body ─────────────────────────────────────────── */
+.sp-legal-card-body {
+  padding: 24px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sp-legal-card-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--sp-text-head);
+  margin: 0 0 10px;
+}
+
+.sp-legal-card-desc {
+  font-size: 0.9rem;
   color: var(--sp-text-muted);
+  line-height: 1.65;
+  margin: 0 0 20px;
+  flex: 1;
+}
+
+.sp-legal-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--sp-cyan-d);
+  transition: gap 0.22s ease, color 0.22s ease;
+}
+
+.sp-legal-card:hover .sp-legal-card-cta {
+  gap: 10px;
+  color: var(--sp-navy-mid);
 }
 
 /* ============================================================
-   RESPONSIVE — TABLET
+   §5.5  EMERGENCY FOOTER — visually separate (§5.6)
+   Two required lines at the very bottom of the support page.
    ============================================================ */
-@media (max-width: 1024px) {
-  .sp-faq-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .sp-contact-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.sp-emergency-footer {
+  background: #1a0505;
+  border-top: 3px solid var(--sp-red-text);
+  padding: 32px 24px;
+  text-align: center;
 }
 
-@media (max-width: 860px) {
-  .sp-hero-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 50px 24px;
-  }
-
-  .sp-hero-image {
-    justify-content: center;
-    order: -1;
-  }
-
-  .sp-hero-image img {
-    max-width: 260px;
-  }
-
-  .sp-hero-subtitle {
-    max-width: 100%;
-  }
-
-  .sp-contact-grid {
-    grid-template-columns: 1fr;
-  }
+.sp-emergency-footer-inner {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+  text-align: left;
 }
 
-@media (max-width: 768px) {
-  .sp-section {
-    padding: 56px 20px;
+.sp-emergency-footer-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(192, 57, 43, 0.2);
+  border: 2px solid rgba(192, 57, 43, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #e88080;
+}
+
+.sp-emergency-line {
+  font-size: 0.92rem;
+  color: #e8b4b4;
+  margin: 0 0 5px;
+  line-height: 1.5;
+}
+
+.sp-emergency-line:last-child {
+  margin-bottom: 0;
+}
+
+.sp-emergency-911 {
+  color: #ff8080;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 128, 128, 0.5);
+  transition: color 0.2s;
+}
+
+.sp-emergency-911:hover {
+  color: #fff;
+}
+
+.sp-app-version {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.28);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   Matches Bootstrap 5 container system:
+     XS  (default / < 576px)  → fluid, 100%
+     SM  (≥ 576px)            → max-width: 540px
+     MD  (≥ 768px)            → max-width: 720px
+     LG  (≥ 992px)            → max-width: 960px
+     XL  (≥ 1200px)           → max-width: 1140px
+     XXL (≥ 1400px)           → max-width: 1320px  ← design target
+   ============================================================ */
+
+/* ── XS default (< 576px) ── fluid, single-column ─────────── */
+.sp-section,
+.sp-contact-inner {
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+
+
+.sp-faq-grid {
+  grid-template-columns: 1fr;
+}
+
+
+.sp-contact-grid {
+  grid-template-columns: 1fr;
+}
+
+.sp-contact-cards {
+  grid-template-columns: 1fr;
+}
+
+.sp-legal-cards {
+  grid-template-columns: 1fr;
+}
+
+.sp-email-card,
+.sp-urgent-card {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* .sp-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+} */
+
+.sp-contact-strip {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.sp-contact-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* ── SM (≥ 576px) → container max 540px ───────────────────── */
+@media (min-width: 576px) {
+  .sp-section,
+  .sp-contact-inner,
+  .sp-contact-section-inner {
+    max-width: 540px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .sp-faq-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .sp-contact-strip {
-    padding: 48px 20px;
-  }
 
+  .sp-contact-strip,
   .sp-contact-section {
-    padding: 56px 20px;
-  }
-
-  .sp-contact-cards {
-    grid-template-columns: 1fr;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
-@media (max-width: 560px) {
-  .sp-faq-grid {
-    grid-template-columns: 1fr 1fr;
+/* ── MD (≥ 768px) → container max 720px ───────────────────── */
+@media (min-width: 768px) {
+  .sp-section,
+  .sp-contact-inner,
+  .sp-contact-section-inner {
+    max-width: 720px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
-  .sp-faq-grid-row2 .sp-faq-card {
-    flex: 0 1 100%;
+
+  .sp-faq-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .sp-email-card,
-  .sp-emergency-card {
-    flex-direction: column;
+  .sp-urgent-card {
+    flex-direction: row;
     align-items: flex-start;
   }
 
-  .sp-disclaimer {
-    flex-direction: column;
-    text-align: center;
+  /* .sp-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  } */
+
+  .sp-contact-strip,
+  .sp-contact-section {
+    padding-left: 24px;
+    padding-right: 24px;
+    /* padding-top: 56px;
+    padding-bottom: 56px; */
   }
 }
 
-@media (max-width: 400px) {
+/* ── LG (≥ 992px) → container max 960px ───────────────────── */
+@media (min-width: 992px) {
+  .sp-section,
+  .sp-contact-inner,
+  .sp-contact-section-inner {
+    max-width: 960px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+
   .sp-faq-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .sp-contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sp-legal-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sp-contact-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+  /* .sp-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  } */
+
+  .sp-contact-strip,
+  .sp-contact-section {
+    padding-left: 30px;
+    padding-right: 30px;
+    /* padding-top: 64px;
+    padding-bottom: 64px; */
   }
 }
+
+/* ── XL (≥ 1200px) → container max 1140px ─────────────────── */
+@media (min-width: 1200px) {
+  .sp-section,
+  .sp-contact-inner,
+  .sp-contact-section-inner {
+    max-width: 1140px;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+
+  .sp-faq-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* .sp-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  } */
+
+  .sp-contact-strip,
+  .sp-contact-section {
+    padding-left: 36px;
+    padding-right: 36px;
+    /* padding-top: 72px;
+    padding-bottom: 72px; */
+  }
+}
+
+/* ── XXL (≥ 1400px) → container max 1320px ────────────────── */
+@media (min-width: 1400px) {
+  .sp-section,
+  .sp-contact-inner,
+  .sp-contact-section-inner {
+    max-width: 1320px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .sp-hero-inner {
+    padding-top: 76px;
+    padding-bottom: 76px;
+    gap: 48px;
+  }
+
+
+
+  /* .sp-section {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  } */
+
+  .sp-contact-strip,
+  .sp-contact-section {
+    padding-left: 40px;
+    padding-right: 40px;
+    /* padding-top: 80px;
+    padding-bottom: 80px; */
+  }
+}
+

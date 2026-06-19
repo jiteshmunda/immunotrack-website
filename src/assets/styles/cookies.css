@@ -118,18 +118,15 @@
   
 }
 
-/* Soft radial cyan glow over image */
-/* .ck-hero::before {
+/* Subtle dark gradient overlay to ensure heading contrast */
+.ck-hero::before {
   content: "";
   position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(45, 214, 229, 0.18) 0%, transparent 70%);
+  inset: 0;
+  background: linear-gradient(135deg, rgba(2, 18, 79, 0.45) 0%, rgba(15, 26, 88, 0.25) 100%);
   pointer-events: none;
-} */
+  z-index: 0;
+}
 
 .ck-hero-inner {
   position: relative;

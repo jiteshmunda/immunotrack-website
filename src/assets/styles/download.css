@@ -1,0 +1,432 @@
+/* ============================================================
+   ImmunoTrack — App Download Page Styles
+   Brand Manual 2026: Navy #02124f · Cyan #2dd6e5 · Font: Avenir
+   ============================================================ */
+
+:root {
+  --dl-navy:        #02124f;
+  --dl-navy-mid:    #151a58;
+  --dl-cyan:        #2dd6e5;
+  --dl-cyan-d:      #1bb8c7;
+  --dl-cyan-pale:   #f0fdfe;
+  --dl-cyan-glow:   rgba(45, 214, 229, 0.14);
+  --dl-text-body:   #2b2f5e;
+  --dl-text-muted:  #6b6f9a;
+  --dl-text-head:   #151a58;
+  --dl-bg-page:     #f3f5fb;
+  --dl-bg-card:     #ffffff;
+  --dl-border:      rgba(21, 26, 88, 0.1);
+  --dl-radius:      16px;
+  --dl-radius-lg:   24px;
+  --dl-shadow:      0 8px 30px rgba(2, 18, 79, 0.06);
+}
+
+.dl-page {
+  min-height: 100vh;
+  background-color: var(--dl-bg-card);
+  color: var(--dl-text-body);
+  font-family: var(--font-avenir), "Avenir", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.dl-hero {
+  position: relative;
+  background: linear-gradient(135deg, #02124f 0%, #151a58 100%);
+  color: #ffffff;
+  padding: 80px 24px;
+  overflow: hidden;
+}
+
+.dl-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 50%, rgba(45, 214, 229, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dl-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.dl-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dl-hero-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 6px 14px;
+  background: rgba(45, 214, 229, 0.15);
+  border: 1px solid rgba(45, 214, 229, 0.3);
+  border-radius: 100px;
+  color: var(--dl-cyan);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.dl-hero-title {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.dl-hero-title span {
+  color: var(--dl-cyan);
+}
+
+.dl-hero-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #cfd4e6;
+  max-width: 520px;
+}
+
+.dl-hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.dl-hero-img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dl-hero-mockups {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  /* subtle drop shadow */
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
+}
+
+/* ============================================================
+   MAIN CONTENT LAYOUT
+   ============================================================ */
+.dl-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Header for download grid */
+.dl-section-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dl-section-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--dl-text-head);
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.dl-section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--dl-cyan);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.dl-section-subtitle {
+  font-size: 18px;
+  color: var(--dl-text-muted);
+}
+
+/* Download Grid Card */
+.dl-card-container {
+  background: var(--dl-bg-card);
+  border-radius: var(--dl-radius-lg);
+  box-shadow: var(--dl-shadow);
+  border: 1px solid var(--dl-border);
+  padding: 48px;
+}
+
+.dl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.3fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.dl-grid-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  position: relative;
+}
+
+/* Dividers between columns on desktop */
+.dl-grid-col:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -16px;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: rgba(21, 26, 88, 0.08);
+}
+
+.dl-grid-desc {
+  font-size: 14px;
+  color: var(--dl-text-muted);
+  font-weight: 500;
+}
+
+/* QR Code Box */
+.dl-qr-box {
+  background: var(--dl-bg-page);
+  border-radius: var(--dl-radius);
+  border: 1.5px dashed rgba(45, 214, 229, 0.4);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+
+.dl-qr-img-wrap {
+  width: 110px;
+  height: 110px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(2, 18, 79, 0.05);
+  flex-shrink: 0;
+}
+
+.dl-qr-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.dl-qr-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dl-qr-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--dl-text-head);
+}
+
+.dl-qr-text {
+  font-size: 13px;
+  color: var(--dl-text-muted);
+  line-height: 1.4;
+}
+
+/* Store Badge Styles (Disabled Placeholder State) */
+.dl-badge-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 60px;
+  background: #000000;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  text-decoration: none;
+  cursor: not-allowed;
+  opacity: 0.65;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.dl-badge-btn.hero-btn {
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.dl-badge-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  opacity: 0.8;
+}
+
+/* Tooltip on hover for disabled state */
+.dl-badge-btn::before {
+  content: "Link coming after App Store submission";
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background: #151a58;
+  color: #ffffff;
+  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(2, 18, 79, 0.2);
+}
+
+.dl-badge-btn:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   INVITATION ONLY SECTION
+   ============================================================ */
+.dl-invite-card {
+  background: var(--dl-cyan-pale);
+  border: 2px solid var(--dl-cyan);
+  border-radius: var(--dl-radius);
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(45, 214, 229, 0.05);
+}
+
+.dl-invite-icon-wrap {
+  width: 80px;
+  height: 80px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--dl-cyan);
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(45, 214, 229, 0.1);
+}
+
+.dl-invite-icon-wrap img {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(60%)
+    saturate(500%) hue-rotate(160deg) brightness(100%) contrast(95%);
+}
+
+.dl-invite-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dl-invite-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--dl-text-head);
+}
+
+.dl-invite-text {
+  font-size: 15px;
+  color: var(--dl-text-body);
+  line-height: 1.5;
+}
+
+.dl-invite-bold {
+  font-weight: 800;
+  color: var(--dl-text-head);
+  margin-top: 4px;
+}
+
+/* ============================================================
+   RESPONSIVENESS
+   ============================================================ */
+@media (max-width: 991.98px) {
+  .dl-hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 36px;
+  }
+
+  .dl-hero-badge {
+    align-self: center;
+  }
+
+  .dl-hero-desc {
+    margin: 0 auto;
+  }
+
+  .dl-hero-buttons {
+    justify-content: center;
+  }
+
+  .dl-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .dl-grid-col:not(:last-child)::after {
+    display: none;
+  }
+
+  .dl-qr-box {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .dl-hero-title {
+    font-size: 38px;
+  }
+
+  .dl-card-container {
+    padding: 32px 20px;
+  }
+
+  .dl-invite-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .dl-invite-icon-wrap {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dl-qr-box {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+}

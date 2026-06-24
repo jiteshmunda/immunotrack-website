@@ -20,8 +20,8 @@ export default function Header() {
             <Image
                src={logo}
               alt="ImmunoTrack"
-              width={160}
-              height={50}
+              width={140}
+              height={44}
               priority
               className="header-logo"
             />

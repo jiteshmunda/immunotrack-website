@@ -1,4 +1,20 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import "@/assets/styles/home.css";
+
+// Import Icons
+import lungsIcon from "@/assets/icons/noun-lungs-8244560.svg";
+import predictionIcon from "@/assets/icons/noun-prediction-8286021.svg";
+import airQualityIcon from "@/assets/icons/noun-air-quality-7857604.svg";
+import profileIcon from "@/assets/icons/noun-profile-8205839.svg";
+import medicationIcon from "@/assets/icons/noun-medication-7320568.svg";
+import dashboardIcon from "@/assets/icons/noun-analytic-dashboard-8346089.svg";
+import trackingIcon from "@/assets/icons/noun-tracking-8269731.svg";
+import cloudIcon from "@/assets/icons/noun-cloud-sync-8146798.svg";
+import settingsIcon from "@/assets/icons/noun-settings-2650525.svg";
+import inhalerIcon from "@/assets/icons/noun-inhaler-7094921.svg";
+import timelineIcon from "@/assets/icons/noun-timeline-8109095.svg";
 
 export const metadata: Metadata = {
   title: "ImmunoTrack — AI-Powered RTM for Allergy & Immunology",
@@ -7,5 +23,233 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <h1>Hello, Next.js!</h1>
+  return (
+    <main className="hm-page">
+      {/* ── HERO SECTION ──────────────────────────────────────── */}
+      <section className="hm-hero" aria-label="ImmunoTrack Hero">
+        <div className="hm-hero-container">
+          <div className="hm-hero-content">
+            <span className="hm-hero-pill">HIPAA Compliant · RTM Ready · AWS Infrastructure</span>
+            <h1 className="hm-hero-title">
+              AI-powered allergy and asthma monitoring — built for clinicians, designed for patients.
+            </h1>
+            <p className="hm-hero-subtitle">
+              ImmunoTrack gives your practice real-time symptom trends, nightly flare risk scores, and remote therapeutic monitoring — so you can act between visits, not just at them.
+            </p>
+            <div className="hm-hero-actions">
+              <Link href="/contact" className="hm-btn hm-btn-cyan">
+                Request Clinician Access
+              </Link>
+              <Link href="/download" className="hm-btn hm-btn-outline">
+                Download the Patient App
+              </Link>
+            </div>
+          </div>
+          <div className="hm-hero-visual">
+            <div className="hm-hero-visual-inner">
+              <Image
+                src="/clinician-dashboard-mockup.png"
+                alt="ImmunoTrack Clinician Dashboard Mockup"
+                width={580}
+                height={380}
+                priority
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* ── THREE FEATURE PILLARS ─────────────────────────────── */}
+      <section className="hm-pillars" aria-label="Pillars">
+        <div className="hm-section-header">
+          <span className="hm-section-tag">Built for allergy and immunology practices</span>
+          <h2 className="hm-section-title">Purpose-built for allergy & immunology</h2>
+          <p className="hm-section-subtitle">
+            Three pillars: AI-driven clinical insight, a patient experience your panel will actually use, and clinical support whenever you need it.
+          </p>
+        </div>
+        <div className="hm-pillars-grid">
+          {/* Pillar 1 */}
+          <div className="hm-pillar-card">
+            <div className="hm-pillar-icon-wrap">
+              <Image src={lungsIcon} alt="RTM-Ready Icon" width={28} height={28} className="hm-pillar-icon" />
+            </div>
+            <div className="hm-pillar-tag">Billing & Compliance</div>
+            <h3 className="hm-pillar-title">RTM-Ready</h3>
+            <p className="hm-pillar-desc">
+              Tracks symptom scores, medication adherence, and therapy response. Supports CPT codes 98975–98981 and the 16-day logging threshold.
+            </p>
+            <Link href="/clinicians" className="hm-pillar-link">
+              Learn More
+            </Link>
+          </div>
+
+          {/* Pillar 2 */}
+          <div className="hm-pillar-card">
+            <div className="hm-pillar-icon-wrap">
+              <Image src={predictionIcon} alt="Nightly AI Insights Icon" width={28} height={28} className="hm-pillar-icon" />
+            </div>
+            <div className="hm-pillar-tag">Predictive Analytics</div>
+            <h3 className="hm-pillar-title">Nightly AI Insights</h3>
+            <p className="hm-pillar-desc">
+              Every night, ImmunoTrack runs a flare risk model across your patient panel. Patients at elevated risk surface to the top of your dashboard so you can act early.
+            </p>
+            <Link href="/clinicians" className="hm-pillar-link">
+              Learn More
+            </Link>
+          </div>
+
+          {/* Pillar 3 */}
+          <div className="hm-pillar-card">
+            <div className="hm-pillar-icon-wrap">
+              <Image src={airQualityIcon} alt="Environmental Triggers Icon" width={28} height={28} className="hm-pillar-icon" />
+            </div>
+            <div className="hm-pillar-tag">Data Integration</div>
+            <h3 className="hm-pillar-title">Environmental Triggers</h3>
+            <p className="hm-pillar-desc">
+              Pollen, air quality, and weather data are automatically paired with each patient&apos;s symptom log every night, helping you identify what&apos;s driving flares.
+            </p>
+            <Link href="/clinicians" className="hm-pillar-link">
+              Learn More
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW IT WORKS SECTION ─────────────────────────────── */}
+      <section className="hm-steps" aria-label="How it works">
+        <div className="hm-section-header">
+          <span className="hm-section-tag">Workflow</span>
+          <h2 className="hm-section-title">How it works</h2>
+          <p className="hm-section-subtitle">
+            Seamless integration with your existing workflow, designed for high patient adoption.
+          </p>
+        </div>
+        <div className="hm-steps-grid">
+          {/* Step 1 */}
+          <div className="hm-step-card">
+            <div className="hm-step-num">1</div>
+            <h3 className="hm-step-title">Invite your patient</h3>
+            <p className="hm-step-desc">
+              Enter name and email. Patient receives app invite. Takes under 2 minutes.
+            </p>
+          </div>
+
+          {/* Step 2 */}
+          <div className="hm-step-card">
+            <div className="hm-step-num">2</div>
+            <h3 className="hm-step-title">Patient logs daily</h3>
+            <p className="hm-step-desc">
+              Respiratory, nasal, and skin symptoms. Medication use. Triggers noticed.
+            </p>
+          </div>
+
+          {/* Step 3 */}
+          <div className="hm-step-card">
+            <div className="hm-step-num">3</div>
+            <h3 className="hm-step-title">You review insights</h3>
+            <p className="hm-step-desc">
+              Nightly AI summaries. Flare risk scores. RTM progress toward billing threshold.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BILLING CPT CODE DETAILS BAR ─────────────────────── */}
+      {/* <section className="hm-billing" aria-label="CPT Code Details">
+        <div className="hm-billing-container">
+          <div className="hm-billing-header">
+            <span className="hm-billing-tag">CPT Codes</span>
+            <span className="hm-billing-title">RTM Billing</span>
+          </div>
+          <div className="hm-billing-grid">
+            <div className="hm-billing-item">
+              <Image src={settingsIcon} alt="" width={16} height={16} className="hm-billing-icon" />
+              <span>CPT 98975 — RTM setup</span>
+            </div>
+            <div className="hm-billing-item">
+              <Image src={inhalerIcon} alt="" width={16} height={16} className="hm-billing-icon" />
+              <span>CPT 98976-77 — device supply</span>
+            </div>
+            <div className="hm-billing-item">
+              <Image src={medicationIcon} alt="" width={16} height={16} className="hm-billing-icon" />
+              <span>CPT 98980-81 — treatment mgmt</span>
+            </div>
+            <div className="hm-billing-item">
+              <Image src={timelineIcon} alt="" width={16} height={16} className="hm-billing-icon" />
+              <span>16-day threshold tracking</span>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* ── CLINICIAN TESTIMONIAL ────────────────────────────── */}
+      <section className="hm-testimonial" aria-label="Clinician Testimonial">
+        <div className="hm-testimonial-container">
+          <div className="hm-testimonial-badge">
+            <span className="hm-testimonial-tag">Clinician Spotlight</span>
+          </div>
+
+          <blockquote className="hm-testimonial-quote">
+            &ldquo;ImmunoTrack gives me visibility between visits that I&apos;ve never had before.&rdquo;
+          </blockquote>
+
+          <div className="hm-testimonial-footer">
+            <div className="hm-testimonial-avatar" aria-hidden="true">
+              <span>MV</span>
+            </div>
+            <div className="hm-testimonial-meta">
+              <div className="hm-testimonial-author">Dr. Marcus Vance, MD</div>
+              <div className="hm-testimonial-role">Allergy & Immunology, Atlanta (Pilot Program)</div>
+            </div>
+            <div className="hm-testimonial-program">
+              <span className="hm-testimonial-program-badge">Verified Partner</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMPLIANCE TRUST BAR ──────────────────────────────── */}
+      <section className="hm-compliance" aria-label="Compliance Standards">
+        <div className="hm-compliance-container">
+          <div className="hm-compliance-header">
+            <span className="hm-compliance-tag">Trusted Standards</span>
+            <span className="hm-compliance-title">We Build To</span>
+          </div>
+          <div className="hm-compliance-grid">
+            <div className="hm-compliance-item">
+              <Image src={profileIcon} alt="" width={16} height={16} className="hm-compliance-icon" />
+              <span>HIPAA Compliant</span>
+            </div>
+            <div className="hm-compliance-item">
+              <Image src={cloudIcon} alt="" width={16} height={16} className="hm-compliance-icon" />
+              <span>AWS Infrastructure</span>
+            </div>
+            <div className="hm-compliance-item">
+              <Image src={trackingIcon} alt="" width={16} height={16} className="hm-compliance-icon" />
+              <span>AES-256 Encryption</span>
+            </div>
+            <div className="hm-compliance-item">
+              <Image src={lungsIcon} alt="" width={16} height={16} className="hm-compliance-icon" />
+              <span>RTM CPT 98975–98981</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FOOTER CTA SECTION ────────────────────────────────── */}
+      <section className="hm-footer-cta" aria-label="Get Started CTA">
+        <div className="hm-footer-cta-container">
+          <h2>Ready to bring RTM to your practice?</h2>
+          <p>ImmunoTrack handles setup. You log in on day one and invite your first patient.</p>
+          <Link href="/contact" className="hm-btn hm-btn-cyan">
+            Request Access
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
 }

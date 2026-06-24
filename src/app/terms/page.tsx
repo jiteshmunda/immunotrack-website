@@ -43,7 +43,7 @@ const sections = [
   { id: "section-3",  label: "3. What ImmunoTrack Does" },
   { id: "section-4",  label: "4. Your Account" },
   { id: "section-5",  label: "5. Your Health Data" },
-  { id: "section-6",  label: "6. Remote Therapeutic Monitoring" },
+  { id: "section-6",  label: "6. Remote Therapeutic Monitoring (RTM)" },
   { id: "section-7",  label: "7. Acceptable Use" },
   { id: "section-8",  label: "8. Medication Reminders" },
   { id: "section-9",  label: "9. Limitation of Liability" },
@@ -75,7 +75,7 @@ export default function TermsPage() {
                 <line x1="8" y1="2" x2="8" y2="6"/>
                 <line x1="3" y1="10" x2="21" y2="10"/>
               </svg>
-              Version 1.1 — May 2026 &nbsp;·&nbsp; Aman Medical Consulting LLC
+              Version 1.1 — June 2026 &nbsp;·&nbsp; ImmunoTrack Inc.
             </div>
           </div>
         </div>
@@ -112,7 +112,10 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                ImmunoTrack and its related software services are owned and operated by <strong>Aman Medical Consulting LLC</strong>, located in Atlanta, Georgia. These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of the ImmunoTrack patient mobile application (the &ldquo;App&rdquo;) and associated web dashboards.
+                ImmunoTrack is operated by <strong>ImmunoTrack Inc.</strong>, a Delaware corporation headquartered in Atlanta, Georgia. These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the ImmunoTrack mobile application and any related services (collectively, the &ldquo;App&rdquo;).
+              </p>
+              <p className="ts-p">
+                By creating an account or using the App, you agree to these Terms. If you do not agree, please do not use the App.
               </p>
             </div>
           </article>
@@ -125,13 +128,13 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                To use the ImmunoTrack App, you must meet the following eligibility requirements:
+                To use ImmunoTrack you must:
               </p>
               <ul className="ts-list">
-                <li>You must be at least 18 years of age (or have the explicit consent and supervision of a parent or legal guardian where permitted by law).</li>
-                <li>You must have received an invitation link or clinician code from a licensed healthcare provider registered with ImmunoTrack.</li>
-                <li>You agree to provide accurate, current, and complete information during registration and symptom logging.</li>
-                <li>You must access and use the App in compliance with the laws of your local jurisdiction.</li>
+                <li>Be 18 years of age or older, or have the consent of a parent or legal guardian if you are a minor</li>
+                <li>Have been invited or referred by a licensed healthcare provider who participates in ImmunoTrack</li>
+                <li>Provide accurate and truthful information when creating your account</li>
+                <li>Reside in a jurisdiction where the App is lawfully available</li>
               </ul>
             </div>
           </article>
@@ -144,17 +147,11 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                ImmunoTrack is a remote therapeutic monitoring dashboard designed to help patients track:
+                ImmunoTrack helps you track your allergy and asthma symptoms, record medication use, monitor environmental conditions, and share health information with your care team. The App may also provide AI-generated insights about patterns in your health data.
               </p>
-              <ul className="ts-list">
-                <li>Daily allergy and asthma symptom logs (respiratory, nasal, and skin).</li>
-                <li>Medication usage logs and compliance.</li>
-                <li>Environmental conditions (local pollen levels, air quality index, and temperature) based on your zip code.</li>
-                <li>AI-powered risk trends and nightly flare risk warnings.</li>
-              </ul>
               <div className="ts-callout ts-callout--info" role="note">
                 <p>
-                  <strong>Medical Disclaimer:</strong> ImmunoTrack does not make clinical diagnoses, prescribe medication, or replace medical consultations. All AI insights and symptom trends are informational risk signals meant to assist your healthcare team. In the event of a medical emergency, call 911 immediately.
+                  ImmunoTrack is not a substitute for professional medical care. AI Insights are informational only and do not constitute medical advice, a diagnosis, or a treatment recommendation. Never delay seeking medical attention because of something you read in this App.
                 </p>
               </div>
             </div>
@@ -168,14 +165,11 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                You are responsible for maintaining the confidentiality of your account credentials, including username and password. You agree to:
+                You are responsible for keeping your login credentials secure and for all activity that occurs under your account. If you believe your account has been compromised, contact us immediately at <a href="mailto:support@immunotrack.ai" className="ts-link">support@immunotrack.ai</a>.
               </p>
-              <ul className="ts-list">
-                <li>Use strong password criteria (including uppercase, lowercase, numbers, and special symbols).</li>
-                <li>Maintain only one active account per individual.</li>
-                <li>Refrain from sharing, selling, or transferring your account credentials or profile details to any third party.</li>
-                <li>Immediately notify ImmunoTrack of any unauthorized access to your account.</li>
-              </ul>
+              <p className="ts-p">
+                You may only create one account. You may not transfer your account to another person.
+              </p>
             </div>
           </article>
 
@@ -187,14 +181,14 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                Your privacy is central to ImmunoTrack:
+                You own your health data. By using the App, you grant ImmunoTrack a limited license to store, process, and share your data with your care team for the purpose of providing the services described in these Terms.
               </p>
-              <ul className="ts-list">
-                <li><strong>Ownership:</strong> You retain all ownership rights to the personal health information and logs you upload.</li>
-                <li><strong>License:</strong> By uploading logs, you grant ImmunoTrack a limited license to store, process, and transmit this data to your invited clinician.</li>
-                <li><strong>HIPAA Compliance:</strong> All Protected Health Information (PHI) is encrypted at rest (AES-256) and in transit (TLS 1.3), hosted on HIPAA-eligible AWS servers.</li>
-                <li><strong>Zero Commercialization:</strong> We do not sell your personal health records, nor do we run advertising trackers.</li>
-              </ul>
+              <p className="ts-p">
+                We handle your health information in accordance with the Health Insurance Portability and Accountability Act (HIPAA) and our Privacy Policy. We do not sell your personal health information. We do not share your data with advertisers.
+              </p>
+              <p className="ts-p">
+                Your clinician and their authorized staff can access your health data through the ImmunoTrack clinician dashboard as part of your care relationship. If you have questions about who can see your data, contact your clinician&apos;s office.
+              </p>
             </div>
           </article>
 
@@ -206,15 +200,11 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                ImmunoTrack supports Remote Therapeutic Monitoring (RTM) clinical programs. If enrolled by your clinician:
+                If you are enrolled in the Remote Therapeutic Monitoring (RTM) program, your clinician uses your daily symptom logs to monitor your health between visits. Your insurance may be billed for this monitoring service using applicable RTM billing codes (CPT codes 98975, 98976, 98980, 98981). You will be asked to provide separate RTM consent before monitoring begins.
               </p>
-              <ul className="ts-list">
-                <li>Your symptom logging data assists your clinician in monitoring respiratory health and medication compliance.</li>
-                <li>Your clinician may submit claims for insurance reimbursement (under RTM CPT codes) based on your monitoring reports.</li>
-                <li>Participation in RTM requires you to review and sign the <strong>RTM Consent Form</strong> provided in the App or by your doctor's office.</li>
-                <li>To qualify for billing cycles, you must log symptoms on at least <strong>16 days</strong> within a 30-day period.</li>
-                <li>You retain the right to withdraw from the RTM program at any time without affecting your clinical care.</li>
-              </ul>
+              <p className="ts-p">
+                To qualify for RTM billing, you are generally required to submit health data on a minimum number of days per monitoring period. The App will show your progress toward the required data submission threshold. Your clinician can answer questions about RTM coverage and costs.
+              </p>
             </div>
           </article>
 
@@ -226,14 +216,14 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                You agree not to engage in any of the following prohibited behaviors:
+                You agree not to:
               </p>
               <ul className="ts-list">
-                <li>Submitting intentionally false health profiles or fraudulent symptom logs.</li>
-                <li>Attempting to bypass authentication layers or gain unauthorized access to other users' accounts or AWS backend servers.</li>
-                <li>Decompiling, reverse engineering, or scraping code from the App or web platform.</li>
-                <li>Using the App to transmit malware, viruses, or spam.</li>
-                <li>Utilizing the system for any illegal, commercial, or unauthorized purposes.</li>
+                <li>Submit false or misleading health information</li>
+                <li>Attempt to access another patient&apos;s account or data</li>
+                <li>Reverse engineer, copy, or modify the App</li>
+                <li>Use the App in any way that violates applicable law</li>
+                <li>Use the App in place of contacting emergency services in a medical emergency</li>
               </ul>
             </div>
           </article>
@@ -246,7 +236,7 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                The App offers convenience-based push notifications and reminders to assist you with logging and medication schedules. These tools are designed to support your routine but are not guaranteed to be fail-proof. You remain fully responsible for taking prescribed medications on time, regardless of App notification performance.
+                Medication reminders in the App are provided as a convenience only. ImmunoTrack is not responsible for missed doses, incorrect dosing, or any harm resulting from reliance on reminder notifications. Always follow the instructions given to you by your prescribing clinician or pharmacist.
               </p>
             </div>
           </article>
@@ -259,13 +249,11 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                To the maximum extent permitted by applicable law:
+                To the fullest extent permitted by law, <strong>ImmunoTrack Inc.</strong> will not be liable for any indirect, incidental, or consequential damages arising from your use of the App, including any reliance on health insights or AI-generated content provided within the App.
               </p>
-              <ul className="ts-list">
-                <li>Aman Medical Consulting LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App.</li>
-                <li>Our total liability for any claim under these Terms is capped at <strong>$100 USD</strong> or the total fees you paid us in the past 12 months, whichever is greater.</li>
-                <li>Nothing in these Terms limits liability for fraud, gross negligence, or willful misconduct.</li>
-              </ul>
+              <p className="ts-p">
+                Our total liability to you for any claim arising from these Terms or your use of the App will not exceed the amount you have paid to use the App in the twelve months preceding the claim, or $100, whichever is greater.
+              </p>
             </div>
           </article>
 
@@ -277,7 +265,7 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                All visual design, code, logos, trademarks, and text within the App and platform are the exclusive property of <strong>Aman Medical Consulting LLC</strong>. You may not copy, reproduce, distribute, or create derivative works from our intellectual property without prior written permission.
+                All content, design, software, and technology in the App is owned by <strong>ImmunoTrack Inc.</strong> or its licensors and is protected by copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, or create derivative works from any part of the App without our written permission.
               </p>
             </div>
           </article>
@@ -290,7 +278,7 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                We may revise these Terms to reflect product changes or legal updates. When updates occur, we will post the revised Terms in the App and update the effective date. For material changes, we will provide at least <strong>14 days advance notice</strong> through the platform before the changes take effect.
+                We may update these Terms from time to time. When we do, we will notify you through the App and update the effective date at the top of this page. Continued use of the App after changes take effect constitutes your acceptance of the updated Terms.
               </p>
             </div>
           </article>
@@ -303,7 +291,10 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                You can stop using the App and terminate your account at any time. To request deletion of your account and related records, email <a href="mailto:support@immunotrack.ai" className="ts-link">support@immunotrack.ai</a>. ImmunoTrack reserves the right to suspend or terminate your account access immediately if you violate these Terms.
+                You may stop using the App at any time. You may request deletion of your account and health data by contacting <a href="mailto:support@immunotrack.ai" className="ts-link">support@immunotrack.ai</a>. We will process your request in accordance with applicable law and our data retention obligations.
+              </p>
+              <p className="ts-p">
+                We reserve the right to suspend or terminate access to the App if you violate these Terms.
               </p>
             </div>
           </article>
@@ -316,7 +307,7 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                These Terms are governed by and construed in accordance with the laws of the <strong>State of Delaware</strong>, without regard to conflict of law principles. Any dispute arising under these Terms shall be resolved exclusively in the federal or state courts located in Delaware, and you consent to the personal jurisdiction of such courts.
+                These Terms are governed by the laws of the <strong>State of Georgia</strong>, United States, without regard to its conflict of law provisions. Any disputes will be resolved in the courts of <strong>Fulton County, Georgia</strong>.
               </p>
             </div>
           </article>
@@ -329,10 +320,10 @@ export default function TermsPage() {
             </div>
             <div className="ts-section-body">
               <p className="ts-p">
-                If you have any questions or feedback regarding these Terms, please contact us at:
+                If you have questions about these Terms, please contact us:
               </p>
               <div className="ts-contact-block">
-                <p><strong>Aman Medical Consulting LLC</strong></p>
+                <p><strong>ImmunoTrack Inc.</strong></p>
                 <p>Email: <a href="mailto:support@immunotrack.ai" className="ts-link">support@immunotrack.ai</a></p>
                 <p>Location: Atlanta, Georgia, United States of America</p>
               </div>
@@ -373,7 +364,7 @@ export default function TermsPage() {
           </nav>
 
           {/* In-App Notice */}
-          <div className="ts-questions-card">
+          {/* <div className="ts-questions-card">
             <h3 className="ts-questions-title">In-App Consent</h3>
             <p className="ts-questions-desc">
               Patients registering inside the ImmunoTrack Patient App must scroll through and accept these terms during account activation:
@@ -384,7 +375,7 @@ export default function TermsPage() {
                 By tapping above you confirm you have read and agree to the ImmunoTrack Terms of Service.
               </p>
             </div>
-          </div>
+          </div> */}
         </aside>
       </div>
     </main>
